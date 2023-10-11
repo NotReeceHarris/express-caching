@@ -34,12 +34,6 @@ function createFileInDirectory(directoryPath, fileName, data) {
 
     const filePath = path.join(directoryPath, fileName);
 
-    try {
-        data = JSON.stringify(data)
-    } catch (error) {
-        
-    }
-
     fs.writeFileSync(filePath, data, 'utf8');
     console.log(`File "${fileName}" created in "${directoryPath}" with data.`);
 }
@@ -80,12 +74,7 @@ module.exports = (configs = {}) => {
         let alreadyCached = getFileContent(configs.dir, hash)
 
         if (alreadyCached) {
-            try {
-                alreadyCached = JSON.parse(alreadyCached)
-                return res.json(alreadyCached)
-            } catch (error) {
-                return res.send(alreadyCached);
-            }
+            return res.send(alreadyCached);
         }
 
         res.cache = function (data) {

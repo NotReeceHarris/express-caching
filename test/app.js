@@ -11,15 +11,14 @@ app.use(cache({
 }))
 
 app.get('/', async function(req, res){
-    // await new Promise(resolve => setTimeout(resolve, 5000))
+    await new Promise(resolve => setTimeout(resolve, 5000))
 
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    return res.cache({'hello': 'world'})
-    //return res.cache(`processed and cached at ${hours}:${minutes}:${seconds} `);
+    return res.cache(`processed and cached at ${hours}:${minutes}:${seconds} `);
 });
 
 

@@ -1,10 +1,10 @@
 # Express Caching
 
-Express Caching is a middleware for Express.js designed to optimize response times by implementing caching strategies for both HTML and JSON content.
+Express Caching is a middleware for Express.js designed to optimize response times by implementing caching strategies for HTML content.
 
 ## Getting Started
 
-To leverage the benefits of Express Caching, simply replace your existing `res.send` or `res.render` functions with `res.cache`. Please note that this middleware is specifically tailored for handling HTML and JSON responses.
+To leverage the benefits of Express Caching, simply replace your existing `res.send` or `res.render` functions with `res.cache`. Please note that this middleware is specifically tailored for handling HTML responses.
 
 ## Installation
 
@@ -41,14 +41,14 @@ app.use(cache({
 app.get('/your-route', (req, res) => {
   // Your route logic here
 
-  res.cache(htmlOrJsonData); // Replace res.send or res.render with res.cache
+  res.cache(htmlData); // Replace res.send or res.render with res.cache
 });
 ```
 
-That's it! Your Express.js application will now benefit from caching for HTML and JSON responses, reducing the load on your templating and logic processes.
+That's it! Your Express.js application will now benefit from caching for HTML responses, reducing the load on your templating and logic processes.
 
 Please remember to configure caching settings as needed for your specific use case, depending on your application's requirements.
 
 ## Note
 
-This middleware focuses exclusively on optimizing HTML and JSON content, and may not be suitable for other data types or response formats.
+This middleware focuses exclusively on optimizing HTML content, and may not be suitable for other data types or response formats.
