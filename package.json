@@ -1,6 +1,6 @@
 {
   "name": "express-caching",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A caching middleware for Express.js designed to optimize template rendering and logic processing times.",
   "main": "index.js",
   "scripts": {
