@@ -1,6 +1,6 @@
 # Express Caching
 
-Express Caching is a middleware for Express.js designed to optimize response times by implementing caching strategies for HTML content.
+Our middleware efficiently redirects traffic away from a router by caching the rendered data, eliminating redundant processing. This caching mechanism captures and stores the final output, ensuring that subsequent requests are served directly from the cache without reprocessing. It's particularly beneficial for optimizing routes with heavy logic, making it ideal for non-real-time APIs and pages with complex templating.
 
 ## Getting Started
 
