@@ -1,8 +1,54 @@
-# express-caching
-A caching middleware for expressjs to reduce templating and logic times
+# Express Caching
 
-<p align="center">
-  <a href="https://lucid.app/lucidchart/be4b7111-be2c-424a-99cc-ea9b2b8b15ee/edit?viewport_loc=-1806%2C-558%2C4992%2C2451%2C0_0&invitationId=inv_a29fe491-bda0-4113-9751-aa6509cbcfec">
-    <img src="/assets/comparison-step-by-step.png" width="50%" />
-  </a>
-</p>
+Express Caching is a middleware for Express.js designed to optimize response times by implementing caching strategies for both HTML and JSON content.
+
+## Getting Started
+
+To leverage the benefits of Express Caching, simply replace your existing `res.send` or `res.render` functions with `res.cache`. Please note that this middleware is specifically tailored for handling HTML and JSON responses.
+
+## Installation
+
+You can install the `express-caching` package via npm or yarn:
+
+```bash
+npm install express-caching
+```
+
+```bash
+yarn add express-caching
+```
+
+## Usage
+
+1. First, import the `express-caching` middleware into your Express.js application:
+
+```javascript
+const express = require('express');
+const cache = require('express-caching');
+
+const app = express();
+
+app.use(cache({
+    ttl: 5,         // time to live per cache (in minutes)
+    restart: true,  // restart cache when server restarts
+    dir: './cache', // cache directory
+}))
+```
+
+2. Use the middleware in your route handler by calling `res.cache`:
+
+```javascript
+app.get('/your-route', (req, res) => {
+  // Your route logic here
+
+  res.cache(htmlOrJsonData); // Replace res.send or res.render with res.cache
+});
+```
+
+That's it! Your Express.js application will now benefit from caching for HTML and JSON responses, reducing the load on your templating and logic processes.
+
+Please remember to configure caching settings as needed for your specific use case, depending on your application's requirements.
+
+## Note
+
+This middleware focuses exclusively on optimizing HTML and JSON content, and may not be suitable for other data types or response formats.
