@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install --only=dev
-      - run: npm run build
 
   # publish to npm
   publish-npm:
@@ -26,8 +24,6 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm install --only=dev
-      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_NPM_TOKEN}}
@@ -46,8 +42,6 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: '@NotReeceHarris'
-      - run: npm install --only=dev
-      - run: npm run build
       - name: Update package.json name
         run: sed -i '2,2s/express-caching/@NotReeceHarris\/express-caching/g' package.json
       - run: echo registry=https://npm.pkg.github.com/NotReeceHarris >> .npmrc
